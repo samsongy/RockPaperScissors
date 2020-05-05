@@ -24,12 +24,25 @@ public class Game {
         return computerMove;
     }
 
-    
+    public static String PlayerMove(){
+        
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("\nSelect a move (rock, paper, scissors): ");
+        String playerMove = sc.next();
+
+        while(!playerMove.equals("rock") && !playerMove.equals("paper") && !playerMove.equals("scissors")){
+            System.out.print("ERROR: INVALID MOVE (please select 'rock', 'paper', or 'scissors'): ");
+            playerMove = sc.next();
+        }
+
+        return playerMove;
+
+    }
 
     public static void main(String[] args) {
 
         System.out.println("\nWelcome to Rock Paper Scissors\n");
-
         boolean contineGame = true;
 
         while(contineGame){
@@ -37,14 +50,24 @@ public class Game {
             char userAnswer;
             Scanner sc = new Scanner(System.in);
 
+        /*
+        //testing to see if ComputerMove method is working
+        System.out.println("\nComputer Move: " + ComputerMove());
+        */
 
-            //testing to see if ComputerMove method is working
-            System.out.println("\nComputer Move: " + ComputerMove());
+
+        
+        //testing to see if PlayerMove method is working:
+        String playerMove = PlayerMove();
+        System.out.println(playerMove);
+        
+
+        
 
 
 
 
-            System.out.println("\nWould you like to keep playing? (y/n): ");
+            System.out.print("\nWould you like to keep playing? (y/n): ");
             userAnswer = sc.next().charAt(0);
 
             
@@ -55,7 +78,7 @@ public class Game {
                 contineGame = false;
             } else {
                 while(userAnswer != 'y' && userAnswer != 'n') {
-                    System.out.println("\nPlease choose either y or n");
+                    System.out.print("\nPlease choose either y or n: ");
                     userAnswer = sc.next().charAt(0);
 
                     if(userAnswer == 'y'){
