@@ -40,59 +40,92 @@ public class Game {
 
     }
 
+
+    public static String CalculateWinner(String x, String y){
+        String computerMove = x;
+        String playerMove = y;
+
+        String winner = null;
+
+        if(computerMove == "rock" && playerMove == "rock"){
+            winner = "Tie!";
+        } else if(computerMove == "paper" && playerMove == "paper"){
+            winner = "Tie!";
+        } else if(computerMove == "scissors" && playerMove == "scissors"){
+            winner = "Tie!";
+        } else if(computerMove == "rock" && playerMove == "scissors"){
+            winner = "You Lose...";
+        } else if(computerMove == "rock" && playerMove == "paper"){
+            winner = "You Win!!!";
+        } else if(computerMove == "scissors" && playerMove == "paper"){
+            winner = "You Lose...";
+        } else if(computerMove == "scissors" && playerMove == "rock"){
+            winner = "You Win!!!";
+        } else if(computerMove == "paper" && playerMove == "rock"){
+            winner = "You Lose...";
+        } else if(computerMove == "paper" && playerMove == "scissors"){
+            winner = "You Win!!!";
+        }
+
+        
+        return winner;  
+    }
+
     public static void main(String[] args) {
 
         System.out.println("\nWelcome to Rock Paper Scissors\n");
-        boolean contineGame = true;
-
-        while(contineGame){
-
-            char userAnswer;
-            Scanner sc = new Scanner(System.in);
-
-        /*
-        //testing to see if ComputerMove method is working
-        System.out.println("\nComputer Move: " + ComputerMove());
-        */
+        // boolean contineGame = true;
 
 
-        
-        //testing to see if PlayerMove method is working:
-        String playerMove = PlayerMove();
-        System.out.println(playerMove);
-        
+        //testing the CalculateWinner method
+        String computerMove = "rock";
+        String playerMove = "scissors";
+
+        String winner = CalculateWinner(computerMove, playerMove);
+
+        System.out.println(winner);
 
         
 
 
+        // while(contineGame){
+
+        //     char userAnswer;
+        //     Scanner sc = new Scanner(System.in);
 
 
-            System.out.print("\nWould you like to keep playing? (y/n): ");
-            userAnswer = sc.next().charAt(0);
+        //     System.out.print("\nWould you like to keep playing? (y/n): ");
+        //     userAnswer = sc.next().charAt(0);
+
+
+
+
+            
+
 
             
                  
-            if(userAnswer == 'y'){
-                contineGame = true;
-            } else if(userAnswer == 'n') {
-                contineGame = false;
-            } else {
-                while(userAnswer != 'y' && userAnswer != 'n') {
-                    System.out.print("\nPlease choose either y or n: ");
-                    userAnswer = sc.next().charAt(0);
+        //     if(userAnswer == 'y'){
+        //         contineGame = true;
+        //     } else if(userAnswer == 'n') {
+        //         contineGame = false;
+        //     } else {
+        //         while(userAnswer != 'y' && userAnswer != 'n') {
+        //             System.out.print("\nPlease choose either y or n: ");
+        //             userAnswer = sc.next().charAt(0);
 
-                    if(userAnswer == 'y'){
-                        contineGame = true;
-                    }
-                    if(userAnswer == 'n'){
-                        contineGame = false;
-                    }
-                }
-            }
+        //             if(userAnswer == 'y'){
+        //                 contineGame = true;
+        //             }
+        //             if(userAnswer == 'n'){
+        //                 contineGame = false;
+        //             }
+        //         }
+        //     }
 
 
 
-        }
+        // }
 
 
     }
